@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 
 class User extends Equatable {
-  final int id;
+  final String id;
   final String createdAt;
   final String name;
   final String avatar;
@@ -15,12 +15,12 @@ class User extends Equatable {
 
   const User.empty()
       : this(
-          id: 0,
+          id: '0',
           createdAt: '_empty.createdAt',
           name: '_empty.name',
           avatar: '_empty.avatar',
         );
 
   @override
-  List<Object?> get props => [id];
+  List<Object?> get props => [id, name, avatar, createdAt];
 }
