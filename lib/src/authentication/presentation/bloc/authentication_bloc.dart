@@ -12,13 +12,13 @@ part 'authentication_state.dart';
 
 class AuthenticationBloc
     extends Bloc<AuthenticationEvent, AuthenticationState> {
-  final CreateUser _creatingUser;
+  final CreateUser _createUser;
   final GetUsers _getUsers;
 
   AuthenticationBloc({
-    required CreateUser creatingUser,
+    required CreateUser createUser,
     required GetUsers getUsers,
-  })  : _creatingUser = creatingUser,
+  })  : _createUser = createUser,
         _getUsers = getUsers,
         super(AuthenticationInitial()) {
     on<CreateUserEvent>(_createUserHandler);
@@ -28,7 +28,7 @@ class AuthenticationBloc
   Future<void> _createUserHandler(
       CreateUserEvent event, Emitter<AuthenticationState> emit) async {
     emit(CreatingUser());
-    final result = await _creatingUser.call(CreateUserParams(
+    final result = await _createUser.call(CreateUserParams(
         name: event.name, avatar: event.avatar, createAt: event.createdAt));
 
     result.fold(
