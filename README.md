@@ -1,4 +1,4 @@
-# education_app
+# TDD CLEAN ARCHITECTURE CUBIT MOCKAPI
 
 A new Flutter project.
 
